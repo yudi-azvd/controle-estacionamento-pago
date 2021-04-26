@@ -2,6 +2,8 @@
 Sistema para realizar o controle de acesso e faturamento de um estacionamento 
 pago.
 
+[Diagrama de classes](https://drive.google.com/file/d/1WHVr1nQ8FEHHnq8d2CB9gBRIKKJ7W_iZ/view?usp=sharing).
+
 ## Participantes
 
 - [Eduardo Levenhagem](https://github.com/MegahNevel)
