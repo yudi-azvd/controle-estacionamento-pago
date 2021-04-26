@@ -12,7 +12,7 @@ logRepositorio.buscarLogsComPlaca(String placadoCarro);
 
 public double executar(Log login, Log logout) {
     int diferenca = login.diferencaDeTempoEmMinutosEntre(logout);
-    int custo = calcularCustoDeEstadia(diferenca);
+    double custo = calcularCustoDeEstadia(diferenca);
     return custo;
   }
 
