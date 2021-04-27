@@ -6,6 +6,12 @@ public class Carro{
     public String placa;
     public String marca;
 
+    public Carro(String _modelo, String _placa, String _marca){
+        modelo = _modelo;
+        placa = _placa;
+        marca = _marca;
+    };
+
     public String getModelo() {
         return modelo;
     }
