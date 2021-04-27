@@ -3,10 +3,9 @@ package controladoras;
 import cadastro.Mensalista;
 import cadastro.Carro;
 import java.util.Scanner;
-
+   
 public class ControladoraCadastro {
     public void cadastrarMensalistaECarro(){
-
         //mensalista        
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o nome");
@@ -19,17 +18,15 @@ public class ControladoraCadastro {
         String telefone = (sc.nextLine());
         System.out.println("Digite sua CNH");
         int cnh = (sc.nextInt());
-        sc.close();
-        
         System.out.println("Cadastro de mensalista concluído!");
+        System.out.println("");
         System.out.println("Cadastre as informações do carro");
-
         
-
         //carro
-        sc = new Scanner(System.in);
+        System.out.println("");
+        sc.nextLine();
         System.out.println("Digite o modelo:");
-        String modelo = sc.nextLine() + "era uma vez";
+        String modelo = sc.nextLine();
         System.out.println("Digite a placa");
         String placa = (sc.nextLine());
         System.out.println("Digite o marca");
