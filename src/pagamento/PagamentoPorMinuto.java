@@ -1,6 +1,6 @@
 package pagamento;
 
-import util.Log;
+import cadastro.Acesso;
 
 public class PagamentoPorMinuto extends ModalidadeDePagamento {
   // placa do carro
@@ -10,7 +10,7 @@ public class PagamentoPorMinuto extends ModalidadeDePagamento {
 logRepositorio.buscarLogsComPlaca(String placadoCarro);
  */
 
-public double executar(Log login, Log logout) {
+public double executar(Acesso login, Acesso logout) {
     int diferenca = login.diferencaDeTempoEmMinutosEntre(logout);
     double custo = calcularCustoDeEstadia(diferenca);
     return custo;

@@ -1,9 +1,9 @@
 package pagamento;
 
-import util.Log;
+import cadastro.Acesso;
 
 public class ModalidadeDePagamento {
-  public int diferencaDeTempoEmMinutosEntre(Log login, Log logout) {
+  public int diferencaDeTempoEmMinutosEntre(Acesso login, Acesso logout) {
 
     return 0;
   }
