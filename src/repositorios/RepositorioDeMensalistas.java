@@ -13,7 +13,7 @@ import cadastro.Mensalista;
  */
 public class RepositorioDeMensalistas {
     
-    private ArrayList<Mensalista> mensalistas = new ArrayList<Mensalista>;
+    private ArrayList<Mensalista> mensalistas = new ArrayList<Mensalista>();
     public Mensalista buscarUmComCnh (int cnh){
         for(Mensalista m: mensalistas){
             if (m.getCnh() == cnh)
