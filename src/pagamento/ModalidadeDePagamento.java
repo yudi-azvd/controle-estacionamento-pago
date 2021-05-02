@@ -7,4 +7,13 @@ public class ModalidadeDePagamento {
 
     return 0;
   }
+  // if diferencaDeTempoEmMinutosEntre >= 540 {
+  // }
+  // else if  diferencaDeTempoEmMinutosEntre >= 60 {
+
+  // }
+  // else if  diferencaDeTempoEmMinutosEntre >= 15 {
+  // }
+  // else if  diferencaDeTempoEmMinutosEntre >= 1 {
+  // }
 }
