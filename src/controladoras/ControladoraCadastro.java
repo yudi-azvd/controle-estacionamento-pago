@@ -32,8 +32,6 @@ public class ControladoraCadastro {
         System.out.println("Digite o marca");
         String marca = (sc.nextLine());
         sc.close();
-        
-
 
         Mensalista mensalista = new Mensalista(nome, endereco, celular, telefone, cnh);
         Carro carro = new Carro(modelo, placa, marca);
