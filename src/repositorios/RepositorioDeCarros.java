@@ -1,5 +1,7 @@
 package repositorios;
 
+import java.util.ArrayList;
+
 import cadastro.Carro;
 
 public class RepositorioDeCarros{
