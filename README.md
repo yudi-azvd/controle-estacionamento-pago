@@ -17,7 +17,7 @@ executando os seguintes comandos no terminal:
 
 
 ## Usar 
-É usar o aplicativo com 
+É possível usar o aplicativo com 
 [Visual Studio Code](https://code.visualstudio.com/download) instalando o 
 [pacote de extensões Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Se tudo deu certo voce verá algo assim no arquivo `src/App.java`:
 
@@ -25,7 +25,7 @@ executando os seguintes comandos no terminal:
 
 Então você vai poder rodar o projeto clicando em `Run`.
 
-Alternativamente, se você estiver usando Linux ou 
+**Alternativamente**, se você estiver usando Linux ou 
 [WSL](https://docs.microsoft.com/en-us/windows/wsl/about), você pode fazer a 
 build do projeto executando o script `build.sh` e logo em seguida executar a 
 aplicação:
