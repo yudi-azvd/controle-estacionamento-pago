@@ -1,6 +1,10 @@
 package cadastro;
+    
+import java.time.LocalDateTime;
 
 public class Acesso {
+    private LocalDateTime dataHora;
+    private String placaDoCarro;
   // Data
   // horário
   // placa de carro
@@ -21,4 +25,20 @@ public class Acesso {
 
     return 0;
   }
+      public String getPlacaDoCarro() {
+        return placaDoCarro;
+    }
+
+    public void setPlacaDoCarro(String placaDoCarro) {
+        this.placaDoCarro = placaDoCarro;
+    }
+
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
 }
