@@ -5,9 +5,8 @@ import cadastro.Carro;
 import java.util.Scanner;
    
 public class ControladoraCadastro {
-    public void cadastrarMensalistaECarro(){
+    public void cadastrarMensalistaECarro(Scanner sc){
         //mensalista        
-        Scanner sc = new Scanner(System.in);
         System.out.println("Digite o nome");
         String nome = (sc.nextLine());
         System.out.println("Digite o endereco");
@@ -31,7 +30,6 @@ public class ControladoraCadastro {
         String placa = (sc.nextLine());
         System.out.println("Digite o marca");
         String marca = (sc.nextLine());
-        sc.close();
 
         Mensalista mensalista = new Mensalista(nome, endereco, celular, telefone, cnh);
         Carro carro = new Carro(modelo, placa, marca);

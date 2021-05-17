@@ -22,8 +22,7 @@ public class Menu{
                 break;
                 
                 case 1:
-                    controladoraCadastro.cadastrarMensalistaECarro();
-                    sc.close();
+                    controladoraCadastro.cadastrarMensalistaECarro(sc);
                 break;
             }
 
