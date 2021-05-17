@@ -7,11 +7,10 @@ public class Menu{
     public void executa(){
 
         int opcao = 0;
-        
-        ControladoraCadastro controladoraCadastro = new ControladoraCadastro();
+        Scanner sc = new Scanner(System.in);
+        ControladoraCadastro controladoraCadastro = new ControladoraCadastro(sc);
 
         do{
-            Scanner sc = new Scanner(System.in);
             System.out.println("Para sair digite 0.\nPara cadastrar um mensalista/carro digite 1.");
             opcao = Integer.parseInt(sc.nextLine());
             //System.out.print(opcao);
@@ -22,7 +21,7 @@ public class Menu{
                 break;
                 
                 case 1:
-                    controladoraCadastro.cadastrarMensalistaECarro(sc);
+                    controladoraCadastro.cadastrarMensalistaECarro();
                 break;
             }
 
