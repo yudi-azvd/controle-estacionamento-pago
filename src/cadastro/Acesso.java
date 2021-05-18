@@ -13,6 +13,9 @@ public class Acesso {
 
     return 0;
   }
+  public int diferencaDeTempoEmDiasEntre(Acesso thatlog) {
+
+    return 0;
   public int diferencaDeTempoEmFracaoEntre(Acesso thatlog) {
 
     return 0;
