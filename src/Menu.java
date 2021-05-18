@@ -14,8 +14,9 @@ public class Menu {
             System.out.println();
             System.out.println("0 - Sair");
             System.out.println("1 - Cadastrar um mensalista/carro");
-            System.out.println("2 - Cobrar pagamento de um carro");
-            System.out.println("3 - Cobrar pagamento de um mensalista");
+            System.out.println("2 - Cadastrar um carro");
+            System.out.println("3 - Cobrar pagamento de um carro");
+            System.out.println("4 - Cobrar pagamento de um mensalista");
             System.out.print("\nEscolha uma opção: ");
             opcao = Integer.parseInt(sc.nextLine());
 
@@ -28,9 +29,12 @@ public class Menu {
                     controladoraCadastro.cadastrarMensalistaECarro();
                     break;
                 case 2:
+                    controladoraCadastro.cadastrarCarro();
+                    break;    
+                case 3:
                     controladoraPagamento.cobrarPagamentoDeUmCarro();
                     break;
-                case 3:
+                case 4:
                     controladoraPagamento.cobrarPagamentoDeMensalista();
                     break;
             }

@@ -52,4 +52,23 @@ public class ControladoraCadastro {
         // Se tudo deu certo
         System.out.println("Cadastro de mensalista e carro concluído!\n");
     }
+    public void cadastrarCarro() {
+               
+        //carro
+        System.out.println("\nCadastre as informações do carro.");
+        System.out.print("Digite o modelo: ");
+        String modelo = sc.nextLine();
+        System.out.print("Digite a placa: ");
+        String placa = sc.nextLine();
+        System.out.print("Digite o marca: ");
+        String marca = sc.nextLine();
+
+        // Construtores podem lançar exceção se faltar informação.
+        Carro carro = new Carro(modelo, placa, marca);
+
+        repositorioDeCarros.adicionarUm(carro);
+
+        // Se tudo deu certo
+        System.out.println("Cadastro de carro concluído!\n");
+    }
 }
