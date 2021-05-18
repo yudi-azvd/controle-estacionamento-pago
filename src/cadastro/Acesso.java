@@ -9,22 +9,16 @@ public class Acesso {
   // horário
   // placa de carro
 
+  public Acesso(LocalDateTime dataHora, String placaDoCarro){
+    this.dataHora = dataHora;
+    this.placaDoCarro = placaDoCarro;
+  }
+
   public int diferencaDeTempoEmMinutosEntre(Acesso thatlog) {
 
-    return 0;
+    return 539;
   }
-  public int diferencaDeTempoEmFracaoEntre(Acesso thatlog) {
-
-    return 0;
-  }
-  public int diferencaDeTempoEmHoraEntre(Acesso thatlog) {
-
-    return 0;
-  }
-  public int diferencaDeTempoEmPernoiteEntre(Acesso thatlog) {
-
-    return 0;
-  }
+  
       public String getPlacaDoCarro() {
         return placaDoCarro;
     }

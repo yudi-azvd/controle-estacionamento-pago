@@ -1,3 +1,4 @@
+/*
 package pagamento;
 
 import cadastro.Acesso;
@@ -8,10 +9,9 @@ public class PagamentoPorPernoite extends ModalidadeDePagamento {
 
 /**
 logRepositorio.buscarLogsComPlaca(String placadoCarro);
- */
+
 
 public double executar(Acesso login, Acesso logout) {
-    int diferenca = login.diferencaDeTempoEmPernoiteEntre(logout);
     double custo = calcularCustoDeEstadia(diferenca);
     return custo;
   }
@@ -20,3 +20,4 @@ public double executar(Acesso login, Acesso logout) {
     return 0.0;
   }
 }
+*/

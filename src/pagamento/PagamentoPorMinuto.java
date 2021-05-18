@@ -1,22 +1,28 @@
 package pagamento;
-
+import java.time.LocalDateTime;
 import cadastro.Acesso;
 
-public class PagamentoPorMinuto extends ModalidadeDePagamento {
-  // placa do carro
-  // checkin chekout
+public class PagamentoPorMinuto extends PagamentoPorFracao {
 
-/**
-logRepositorio.buscarLogsComPlaca(String placadoCarro);
- */
-
-public double executar(Acesso login, Acesso logout) {
+  public double executar(Acesso login, Acesso logout) {
     int diferenca = login.diferencaDeTempoEmMinutosEntre(logout);
     double custo = calcularCustoDeEstadia(diferenca);
     return custo;
   }
 
   private double calcularCustoDeEstadia(int diferencaDeTempoEmMinutos) {
-    return 0.0;
+    int diferenca = diferencaDeTempoEmMinutos;
+    double preco = 0;
+    preco = diferenca * 0.5;
+    preco = preco - super.calcularDesconto(diferencaDeTempoEmMinutos);
+    return preco;
   }
+  public static void main(String[] args) {
+    PagamentoPorMinuto pagamento = new PagamentoPorMinuto();
+    Acesso login = new Acesso(LocalDateTime.of(2017,2,13,15,0),"abc5");
+    Acesso logout = new Acesso(LocalDateTime.of(2017,2,13,15,5),"abc5"); 
+    System.out.println(pagamento.executar(login, logout));
+
+  } 
+
 }
