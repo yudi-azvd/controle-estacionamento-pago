@@ -12,7 +12,7 @@ import cadastro.Mensalista;
  * @author pablo
  */
 public class RepositorioDeMensalistas {
-    private ArrayList<Mensalista> mensalistas = new ArrayList<Mensalista>();
+    static private ArrayList<Mensalista> mensalistas = new ArrayList<Mensalista>();
     
     public Mensalista buscarUmComCnh (int cnh){
         for(Mensalista m: mensalistas){

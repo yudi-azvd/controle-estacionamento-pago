@@ -2,12 +2,15 @@ package controladoras;
 
 import cadastro.Mensalista;
 import repositorios.RepositorioDeCarros;
+import repositorios.RepositorioDeMensalistas;
 import cadastro.Carro;
 import java.util.Scanner;
 
 
 public class ControladoraCadastro {
     private Scanner sc;
+
+    RepositorioDeMensalistas repositorioDeMensalistas = new RepositorioDeMensalistas();
    
     public ControladoraCadastro(Scanner scanner) {
         sc = scanner;
@@ -41,6 +44,8 @@ public class ControladoraCadastro {
         // Construtores podem lançar exceção se faltar informação.
         Mensalista mensalista = new Mensalista(nome, endereco, celular, telefone, cnh);
         Carro carro = new Carro(modelo, placa, marca);
+
+        repositorioDeMensalistas.adicionarUm(mensalista);
 
         // se tudo deu certo
         System.out.println("Cadastro de mensalista e carro concluído!\n");

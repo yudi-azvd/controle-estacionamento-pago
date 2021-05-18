@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import cadastro.Carro;
 
-public class RepositorioDeCarros{
-    private ArrayList<Carro> carros = new ArrayList<Carro>();
+public class RepositorioDeCarros {
+    static private ArrayList<Carro> carros = new ArrayList<Carro>();
     
     public Carro buscarUmComPlaca (String placa){
         for(Carro c: carros){

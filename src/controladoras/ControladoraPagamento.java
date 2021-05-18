@@ -5,15 +5,17 @@ import java.util.Scanner;
 
 import cadastro.Acesso;
 import cadastro.Carro;
+import cadastro.Mensalista;
 import repositorios.RepositorioDeAcessos;
 import repositorios.RepositorioDeCarros;
+import repositorios.RepositorioDeMensalistas;
 
 public class ControladoraPagamento {
   private Scanner sc;
 
   private RepositorioDeCarros repositorioDeCarros = new RepositorioDeCarros();
-
   private RepositorioDeAcessos repositorioDeAcessos = new RepositorioDeAcessos();
+  private RepositorioDeMensalistas repositorioDeMensalistas = new RepositorioDeMensalistas();
 
   public ControladoraPagamento(Scanner scanner) {
     this.sc = scanner;
@@ -43,6 +45,15 @@ public class ControladoraPagamento {
   }
 
   public void cobrarPagamentoDeMensalista() {
-    
+    System.out.print("Digite a cnh do mensalista: ");
+    int cnh = sc.nextInt(); sc.nextLine();
+    Mensalista mensalista = repositorioDeMensalistas.buscarUmComCnh(cnh);
+
+    if (mensalista == null) {
+      System.out.println("Mensalista não encontrado");
+    }
+    else {
+      System.out.println("Nome do mensalista é " + mensalista.getNome());
+    }
   }
 }
