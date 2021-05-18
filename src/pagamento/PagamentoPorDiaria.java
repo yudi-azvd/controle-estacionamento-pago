@@ -1,4 +1,4 @@
-/*
+
 package pagamento;
 
 import cadastro.Acesso;
@@ -6,20 +6,25 @@ import cadastro.Acesso;
 public class PagamentoPorDiaria extends PagamentoPorHora {
   
   public double executar(Acesso login, Acesso logout) {
-    double custo = calcularCustoDeEstadia(diferenca);
+    int diferenca = login.diferencaDeTempoEmMinutosEntre(logout);
+    int dias = login.diferencaDeTempoEmDiasEntre(logout);
+    double custo = calcularCustoDeEstadia(diferenca,dias);
     return custo;
   }
 
-  private double calcularCustoDeEstadia(int diferencaDeTempoEmMinutos) {
-    double diaria = 110;
-    if data_login != data_logout{
-      diferenca = diferenca - 600;  // desconto de 10 horas do estacionamento fechado
+  private double calcularCustoDeEstadia(int diferencaDeTempoEmMinutos, int diferencaDeTempoEmDias) {
+    int diferenca = diferencaDeTempoEmMinutos;
+    double diaria;
+    int periodoEstacionamentoFechadoEmMinutos = 600;
+    int minutosEmUmaDiaria = 540;
+    double precoPorNoite = 30;
+    double precoPorDiaria = 110;
+
+    if (diferencaDeTempoEmDias != 0){
+      diferenca = diferenca - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
     }
-    if (diferenca > 540){
-      diferenca = diferenca - 540;
-      diaria = diaria + (diferenca * 0.2);
-    }
+    diferenca = diferenca - (diferencaDeTempoEmDias*minutosEmUmaDiaria);
+    diaria = (diferencaDeTempoEmDias*precoPorNoite)+(diferencaDeTempoEmDias*precoPorDiaria) + (diferenca * 0.2);
     return diaria;
   }
 }
-*/

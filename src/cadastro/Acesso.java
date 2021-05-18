@@ -16,7 +16,12 @@ public class Acesso {
 
   public int diferencaDeTempoEmMinutosEntre(Acesso thatlog) {
 
-    return 539;
+    return 0;
+  }
+
+  public int diferencaDeTempoEmDiasEntre(Acesso thatlog) {
+
+    return 0;
   }
   
       public String getPlacaDoCarro() {

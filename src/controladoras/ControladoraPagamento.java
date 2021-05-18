@@ -36,11 +36,27 @@ public class ControladoraPagamento {
     ArrayList<Acesso> acessos = repositorioDeAcessos.buscarTodosComPlaca(placa);
 
     int diferencaDeTempoEmMinutos = acessos.get(0).diferencaDeTempoEmMinutosEntre(acessos.get(1));
-
+    int diferencaDeTempoEmDias = acessos.get(0).diferencaDeTempoEmDiasEntre(acessos.get(1));
+    // if (diferencaDeTempoEmDias != 0){
+    //   diferenca = diferenca - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
+    // }
+    // if (diferencaDeTempoEmMinutosEntre >= 540){
+    //     manda pagamentoPorDiaria
+    // }
+    // else{
+    //     manda pagamentoPorMinutos
+    // }
     double custo = 0;
     // calcularPagamento(diferencaDeTempoEmMinutos);
     System.out.println("O custo é R$" + custo);
   }
+// 20hrs dia 17/05 =>  19hrs dia 18/05   23hrs => 1380
+// pernoite, diaria, 240 minutos
+// 30 + 110 + 48 = 188
+
+// 20hrs dia 17/05 =>  19hrs dia 19/05   47hrs => 2820
+// 1 pernoite, 1 diaria, 300 minutos, 1 pernoite, diaria, 240 minutos 
+// 30 + 110 + 60 + 30 + 110 + 48 = 388;
 
   public void cobrarPagamentoDeMensalista() {
     

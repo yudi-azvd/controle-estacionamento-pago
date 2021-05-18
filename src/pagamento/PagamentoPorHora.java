@@ -2,7 +2,7 @@ package pagamento;
 
 import cadastro.Acesso;
 
-public class PagamentoPorHora extends ModalidadeDePagamento {
+public class PagamentoPorHora{
 
   public double executar(Acesso login, Acesso logout) {
     int diferenca = login.diferencaDeTempoEmMinutosEntre(logout);

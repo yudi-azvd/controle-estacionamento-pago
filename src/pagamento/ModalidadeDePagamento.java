@@ -8,26 +8,16 @@ public class ModalidadeDePagamento {
     return 0;
   }
 /*
-  if diferencaDeTempoEmMinutosEntre >= 540 {
-    PagamentoPorDiaria
+  if datalogin != datalogout{
+    multiplicador = datalogout - datalogin
+    diferencaDeTempoEmMinutosEntre = diferencaDeTempoEmMinutosEntre - multiplicador * 600; 
   }
+
+  if diferencaDeTempoEmMinutosEntre >= 540{
+        manda pagamentoPorDiaria
+    }
   else{
-
-    do{
-      else if  diferencaDeTempoEmMinutosEntre >= 60 {
-        diferencaDeTempoEmMinutosEntre = diferencaDeTempoEmMinutosEntre - 60
-        PagamentoPorHora
-      }
-      else if  diferencaDeTempoEmMinutosEntre >= 15 {
-        diferencaDeTempoEmMinutosEntre = diferencaDeTempoEmMinutosEntre - 15
-        PagamentoPorFracao
-      }
-      else if  diferencaDeTempoEmMinutosEntre >= 1 {
-        diferencaDeTempoEmMinutosEntre = diferencaDeTempoEmMinutosEntre - 1
-        PagamentoPorMinuto
-      }
-
-    } while(diferencaDeTempoEmMinutosEntre != 0)
-  }
+        manda pagamentoPorHoras
+    }
   */
 }
