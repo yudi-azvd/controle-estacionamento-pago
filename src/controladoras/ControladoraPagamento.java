@@ -28,12 +28,15 @@ public class ControladoraPagamento {
     Carro carro = repositorioDeCarros.buscarUmComPlaca(placa);
 
     if (carro == null) {
-      // lançar exceção?
+      System.out.println("Carro não foi encontrado");
+      return; 
     }
 
-    // verificar se o dno do carro é mensalista
-    // se sim, escolha a opção de pagamento para mensalistas
-    // return;
+    boolean carroPertenceMensalista = carro.getMensalistaCnh() != 0;
+    if (carroPertenceMensalista) {
+      System.out.println("Escolha a opção \"cobrar pagamento de um mensalista\" no menu principal.");
+      return;
+    }
     
     ArrayList<Acesso> acessos = repositorioDeAcessos.buscarTodosComPlaca(placa);
 
