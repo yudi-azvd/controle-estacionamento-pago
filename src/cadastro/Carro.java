@@ -15,11 +15,12 @@ public class Carro{
     public String getModelo() {
         return modelo;
     }
+    
     public String getPlaca() {
         return placa;
     }
+
     public String getMarca() {
         return marca;
     }
-
 }

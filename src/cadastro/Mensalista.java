@@ -10,7 +10,7 @@ public class Mensalista {
     private int cnh;
     private ArrayList<Carro> carros ;
 
-    public Mensalista(String _nome, String _endereco, String _celular, String _telefone, int _cnh){
+    public Mensalista(String _nome, String _endereco, String _celular, String _telefone, int _cnh) {
         nome = _nome;
         endereco = _endereco;
         celular = _celular;
@@ -19,25 +19,30 @@ public class Mensalista {
         carros = new ArrayList<>();
     };
 
-    public void adicionarCarro(Carro carro){
+    public void adicionarCarro(Carro carro) {
         carros.add(carro);
-    };
+    }
     
     public String getNome() {
         return nome;
     }
+
     public String getEndereco() {
         return endereco;
     }
+
     public String getCelular() {
         return celular;
     }
+
     public String getTelefone() {
         return telefone;
     }
+
     public int getCnh() {
         return cnh;
     }
+    
     public ArrayList<Carro> getCarros() {
         return carros;
     }
