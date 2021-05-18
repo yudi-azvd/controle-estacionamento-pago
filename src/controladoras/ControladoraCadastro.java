@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ControladoraCadastro {
     private Scanner sc;
    
-    public ControladoraCadastro(Scanner scanner){
+    public ControladoraCadastro(Scanner scanner) {
         sc = scanner;
     }
     
