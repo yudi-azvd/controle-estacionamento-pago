@@ -11,6 +11,7 @@ public class ControladoraCadastro {
     private Scanner sc;
 
     RepositorioDeMensalistas repositorioDeMensalistas = new RepositorioDeMensalistas();
+    RepositorioDeCarros repositorioDeCarros = new RepositorioDeCarros();
    
     public ControladoraCadastro(Scanner scanner) {
         sc = scanner;
@@ -46,8 +47,9 @@ public class ControladoraCadastro {
         Carro carro = new Carro(modelo, placa, marca);
 
         repositorioDeMensalistas.adicionarUm(mensalista);
+        repositorioDeCarros.adicionarUm(carro);
 
-        // se tudo deu certo
+        // Se tudo deu certo
         System.out.println("Cadastro de mensalista e carro concluído!\n");
     }
 }
