@@ -3,9 +3,16 @@ package controladoras;
 import cadastro.Mensalista;
 import cadastro.Carro;
 import java.util.Scanner;
-   
+
+
 public class ControladoraCadastro {
-    public void cadastrarMensalistaECarro(Scanner sc){
+    private Scanner sc;
+   
+    public ControladoraCadastro(Scanner scanner) {
+        sc = scanner;
+    }
+    
+    public void cadastrarMensalistaECarro(){
         //mensalista        
         System.out.println("Digite o nome");
         String nome = (sc.nextLine());

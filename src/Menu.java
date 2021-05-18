@@ -1,17 +1,18 @@
 import java.util.Scanner;
 
 import controladoras.ControladoraCadastro;
+import controladoras.ControladoraPagamento;
 
 public class Menu{
 
     public void executa(){
 
         int opcao = 0;
-        
-        ControladoraCadastro controladoraCadastro = new ControladoraCadastro();
+        Scanner sc = new Scanner(System.in);
+        ControladoraCadastro controladoraCadastro = new ControladoraCadastro(sc);
+        ControladoraPagamento controladoraPagamento = new ControladoraPagamento(sc);
 
         do{
-            Scanner sc = new Scanner(System.in);
             System.out.println("Para sair digite 0.\nPara cadastrar um mensalista/carro digite 1.");
             opcao = Integer.parseInt(sc.nextLine());
             //System.out.print(opcao);
@@ -19,11 +20,16 @@ public class Menu{
                 case 0:
                     System.out.println("Obrigado por usar nosso programa!");
                     sc.close();
-                break;
-                
+                    break;
                 case 1:
-                    controladoraCadastro.cadastrarMensalistaECarro(sc);
-                break;
+                    controladoraCadastro.cadastrarMensalistaECarro();
+                    break;
+                case 10:
+                    controladoraPagamento.cobrarPagamentoDeUmCarro();
+                    break;
+                case 11:
+                    controladoraPagamento.cobrarPagamentoDeMensalista();
+                    break;
             }
 
             
