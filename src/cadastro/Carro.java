@@ -2,15 +2,17 @@ package cadastro;
 
 
 public class Carro{
-    public String modelo;
-    public String placa;
-    public String marca;
+    private String modelo;
+    private String placa;
+    private String marca;
+    private int mensalistaCnh;
 
-    public Carro(String _modelo, String _placa, String _marca){
+    public Carro(String _modelo, String _placa, String _marca, int cnh){
         modelo = _modelo;
         placa = _placa;
         marca = _marca;
-    };
+        mensalistaCnh = cnh;
+    }
 
     public String getModelo() {
         return modelo;
@@ -23,4 +25,9 @@ public class Carro{
     public String getMarca() {
         return marca;
     }
+
+    public int getMensalistaCnh() {
+        return mensalistaCnh;
+    }
+
 }

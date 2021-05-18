@@ -44,7 +44,7 @@ public class ControladoraCadastro {
 
         // Construtores podem lançar exceção se faltar informação.
         Mensalista mensalista = new Mensalista(nome, endereco, celular, telefone, cnh);
-        Carro carro = new Carro(modelo, placa, marca);
+        Carro carro = new Carro(modelo, placa, marca, cnh);
 
         repositorioDeMensalistas.adicionarUm(mensalista);
         repositorioDeCarros.adicionarUm(carro);
@@ -64,7 +64,7 @@ public class ControladoraCadastro {
         String marca = sc.nextLine();
 
         // Construtores podem lançar exceção se faltar informação.
-        Carro carro = new Carro(modelo, placa, marca);
+        Carro carro = new Carro(modelo, placa, marca, 0);
 
         repositorioDeCarros.adicionarUm(carro);
 
