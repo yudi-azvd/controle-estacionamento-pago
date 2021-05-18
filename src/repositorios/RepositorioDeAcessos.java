@@ -14,10 +14,9 @@ import cadastro.Acesso;
  * @author pablo
  */
 public class RepositorioDeAcessos {
+    static private ArrayList<Acesso> acessos = new ArrayList<Acesso>();
     
-    private ArrayList<Acesso> acessos = new ArrayList<Acesso>();
-    
-    public ArrayList<Acesso> buscarTodosComPlaca (String placa){
+    public ArrayList<Acesso> buscarTodosComPlaca (String placa) {
         ArrayList<Acesso> a = new ArrayList<Acesso>();
         a = null;
         for(Acesso ac: acessos){
@@ -27,8 +26,8 @@ public class RepositorioDeAcessos {
         }
         
         return a;
-        
     }
+
     public  Acesso adicionarUm(Acesso acesso) {
         acessos.add(acesso);
         return null;

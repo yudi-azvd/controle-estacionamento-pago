@@ -5,15 +5,17 @@ import java.util.Scanner;
 
 import cadastro.Acesso;
 import cadastro.Carro;
+import cadastro.Mensalista;
 import repositorios.RepositorioDeAcessos;
 import repositorios.RepositorioDeCarros;
+import repositorios.RepositorioDeMensalistas;
 
 public class ControladoraPagamento {
   private Scanner sc;
 
   private RepositorioDeCarros repositorioDeCarros = new RepositorioDeCarros();
-
   private RepositorioDeAcessos repositorioDeAcessos = new RepositorioDeAcessos();
+  private RepositorioDeMensalistas repositorioDeMensalistas = new RepositorioDeMensalistas();
 
   public ControladoraPagamento(Scanner scanner) {
     this.sc = scanner;
@@ -26,12 +28,15 @@ public class ControladoraPagamento {
     Carro carro = repositorioDeCarros.buscarUmComPlaca(placa);
 
     if (carro == null) {
-      // lançar exceção?
+      System.out.println("Carro não foi encontrado");
+      return; 
     }
 
-    // verificar se o dno do carro é mensalista
-    // se sim, escolha a opção de pagamento para mensalistas
-    // return;
+    boolean carroPertenceMensalista = carro.getMensalistaCnh() != 0;
+    if (carroPertenceMensalista) {
+      System.out.println("Escolha a opção \"cobrar pagamento de um mensalista\" no menu principal.");
+      return;
+    }
     
     ArrayList<Acesso> acessos = repositorioDeAcessos.buscarTodosComPlaca(placa);
 
@@ -66,7 +71,15 @@ public class ControladoraPagamento {
 
 
   public void cobrarPagamentoDeMensalista() {
-    System.out.print("o valor mensal de um mensalista é de 500 R$.");
-   
+    System.out.print("Digite a cnh do mensalista: ");
+    int cnh = sc.nextInt(); sc.nextLine();
+    Mensalista mensalista = repositorioDeMensalistas.buscarUmComCnh(cnh);
+
+    if (mensalista == null) {
+      System.out.println("Mensalista não encontrado");
+    }
+    else {
+      System.out.println(mensalista.getNome() + ", o preço mensal é de R$ 500");
+    }
   }
 }
