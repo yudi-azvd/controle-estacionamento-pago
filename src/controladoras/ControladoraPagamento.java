@@ -37,14 +37,16 @@ public class ControladoraPagamento {
 
     int diferencaDeTempoEmMinutos = acessos.get(0).diferencaDeTempoEmMinutosEntre(acessos.get(1));
     int diferencaDeTempoEmDias = acessos.get(0).diferencaDeTempoEmDiasEntre(acessos.get(1));
+    
     // if (diferencaDeTempoEmDias != 0){
-    //   diferenca = diferenca - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
+    //    diferenca = diferenca - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
     // }
+    
     // if (diferencaDeTempoEmMinutosEntre >= 540){
-    //     manda pagamentoPorDiaria
+    //   manda pagamentoPorDiaria
     // }
     // else{
-    //     manda pagamentoPorMinutos
+    //   manda pagamentoPorMinutos
     // }
     double custo = 0;
     // calcularPagamento(diferencaDeTempoEmMinutos);
@@ -58,7 +60,13 @@ public class ControladoraPagamento {
 // 1 pernoite, 1 diaria, 300 minutos, 1 pernoite, diaria, 240 minutos 
 // 30 + 110 + 60 + 30 + 110 + 48 = 388;
 
+// 20hrs dia 17/05 =>  7hrs dia 19/05   47hrs => 2820
+// 1 pernoite, 1 diaria, 300 minutos, 1 pernoite, 60 minutos 
+// 30 + 110 + 60 + 30 + 110 + 48 = 388;
+
+
   public void cobrarPagamentoDeMensalista() {
-    
+    System.out.print("o valor mensal de um mensalista é de 500 R$.");
+   
   }
 }
