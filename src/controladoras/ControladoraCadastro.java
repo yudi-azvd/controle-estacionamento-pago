@@ -36,15 +36,20 @@ public class ControladoraCadastro {
         String telefone = entradaDoTeclado.nextLine();
         
         System.out.print("Digite sua CNH: ");
-        String saida = entradaDoTeclado.nextLine();		
+        String saida = entradaDoTeclado.nextLine();	
+        int cnh = Integer.valueOf(saida);	
         
         if (nome == null || nome.length() == 0 || endereco == null || endereco.length() == 0
         || celular == null || celular.length() == 0 || telefone == null || telefone.length() == 0 
         || saida == null || saida.length() == 0) {
             throw new DadosAcessoIncompletosException();
         }
-        
-        int cnh = Integer.valueOf(saida);
+
+        Mensalista mensalitaExistente=repositorioDeMensalistas.buscarUmComCnh(cnh);
+        boolean mensalistaExiste = mensalitaExistente != null; 
+        if (mensalistaExiste) {
+            throw new MensalistaJaCadastradoException();
+        }
         
         Mensalista mensalista = new Mensalista(nome, endereco, celular, telefone, cnh);
         repositorioDeMensalistas.adicionarUm(mensalista);
@@ -66,6 +71,12 @@ public class ControladoraCadastro {
         || marca == null || marca.length() == 0;
         if (dadosDoCarroIncompletos) {
             throw new DadosVeiculosIncompletosException();
+        }
+
+        Carro carroExistente=repositorioDeCarros.buscarUmComPlaca(placa);
+        boolean carroExiste = carroExistente != null; 
+        if (carroExiste) {
+            throw new CarroJaCadastradoException();
         }
         
         Carro carro = new Carro(modelo, placa, marca, cnh );
@@ -92,6 +103,12 @@ public class ControladoraCadastro {
         || marca == null || marca.length() == 0;
         if (dadosDoCarroIncompletos) {
             throw new DadosVeiculosIncompletosException();
+        }
+
+        Carro carroExistente=repositorioDeCarros.buscarUmComPlaca(placa);
+        boolean carroExiste = carroExistente != null; 
+        if (carroExiste) {
+            throw new CarroJaCadastradoException();
         }
         
         // Construtores podem lançar exceção se faltar informação.

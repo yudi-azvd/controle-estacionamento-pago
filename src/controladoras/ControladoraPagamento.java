@@ -41,10 +41,10 @@ public class ControladoraPagamento {
     }
     
     ArrayList<Acesso> acessos = repositorioDeAcessos.buscarTodosComPlaca(placa);
-    Acesso login = acessos.get(0), logout = acessos.get(1);
+    Acesso acessoEntrada = acessos.get(0), acessoSaida = acessos.get(1);
     double custo = 0;
-    int diferencaDeTempoEmMinutos = acessos.get(0).diferencaDeTempoEmMinutosEntre(acessos.get(1));
-    int diferencaDeTempoEmDias = acessos.get(0).diferencaDeTempoEmDiasEntre(acessos.get(1));
+    int diferencaDeTempoEmMinutos = acessoEntrada.diferencaDeTempoEmMinutosEntre(acessoSaida);
+    int diferencaDeTempoEmDias = acessoEntrada.diferencaDeTempoEmDiasEntre(acessoSaida);
     int periodoEstacionamentoFechadoEmMinutos = 600;
 
     if (diferencaDeTempoEmDias != 0){
@@ -53,11 +53,11 @@ public class ControladoraPagamento {
     
     if (diferencaDeTempoEmMinutos >= 540){
       PagamentoPorDiaria pagamentoPorDiaria = new PagamentoPorDiaria();
-      custo = pagamentoPorDiaria.executar(login, logout);
+      custo = pagamentoPorDiaria.executar(acessoEntrada, acessoSaida);
     }
     else{
       PagamentoPorMinuto pagamentoPorMinuto = new PagamentoPorMinuto();
-      custo = pagamentoPorMinuto.executar(login, logout);
+      custo = pagamentoPorMinuto.executar(acessoEntrada, acessoSaida);
     }
     repositorioDeAcessos.apagarTodosComPlaca(placa);
 
