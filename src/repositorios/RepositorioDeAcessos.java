@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this teaplate file, choose Tools | Teaplates
- * and open the teaplate in the editor.
- */
 package repositorios;
 
 import java.util.ArrayList;

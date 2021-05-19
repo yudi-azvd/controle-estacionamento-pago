@@ -62,7 +62,10 @@ public class ControladoraPagamento {
     repositorioDeAcessos.apagarTodosComPlaca(placa);
 
     // calcularPagamento(diferencaDeTempoEmMinutos);
-    System.out.println("O custo é R$" + custo);
+    System.out.println("O custo é de R$" + custo);
+    System.out.println("\nPressione enter para voltar ao Menu Principal.");
+    this.entradaDoTeclado.nextLine();
+
   }
 // 20hrs dia 17/05 =>  19hrs dia 18/05   23hrs => 1380
 // pernoite, diaria, 240 minutos

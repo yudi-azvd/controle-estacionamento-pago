@@ -3,8 +3,8 @@ package controladoras;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import cadastro.Acesso;
+import excecoes.EstacionamentoFechadoException;
 import repositorios.RepositorioDeAcessos;
 
 public class ControladoraAcesso {
@@ -29,9 +29,16 @@ public class ControladoraAcesso {
 
         int anoPadrao=2020;
         int mesPadrao=5;
-        LocalDateTime dateTime = LocalDateTime.of(anoPadrao, mesPadrao, dia, hora, minuto, 0);
-        Acesso acesso = new Acesso(dateTime, placa);
-        repositorioDeAcessos.adicionarUm(acesso);
+        try{
+            LocalDateTime dateTime = LocalDateTime.of(anoPadrao, mesPadrao, dia, hora, minuto, 0);
+            Acesso acesso = new Acesso(dateTime, placa);
+            if (hora>20 || hora<6) {
+				    throw new EstacionamentoFechadoException();
+			    }
+            repositorioDeAcessos.adicionarUm(acesso);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }          
     }
     public void listarTodos() {
         ArrayList<Acesso> lista = repositorioDeAcessos.buscarTodos();
