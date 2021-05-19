@@ -1,6 +1,6 @@
 package excecoes;
 
-public class DadosPessoaisIncompletosException extends Exception {
+public class DadosPessoaisIncompletosException extends RuntimeException {
   
 	public DadosPessoaisIncompletosException() {
 		super("Dados pessoais incompletos");

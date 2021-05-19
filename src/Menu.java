@@ -18,9 +18,16 @@ public class Menu {
                 mostrarOpcoes();
                 opcao = Integer.parseInt(sc.nextLine());
                 lidarComOpcao(opcao);
-            } catch (Exception e) {
-                System.out.println(e);
-                System.out.println(e.getStackTrace());
+            } catch (RuntimeException e) {
+                System.out.println("\n######################");
+                System.out.println("# " + e.getMessage() + "!");
+                System.out.println("#");
+                System.out.println("# Pressione ENTER para continuar");
+                System.out.println("######################");
+                sc.nextLine();
+
+                // System.out.println(e);
+                // System.out.println(e.getStackTrace());
             }
         } while (opcao != 0);
     }
@@ -32,8 +39,9 @@ public class Menu {
         System.out.println("2 - Cadastrar um carro");
         System.out.println("3 - Cobrar pagamento de um carro");
         System.out.println("4 - Cobrar pagamento de um mensalista");
-        System.out.println("5 - Registrar Acesso de Carro");
-        System.out.println("6 - Listar todos os Acessos");
+        System.out.println("5 - Registrar acesso de carro");
+        System.out.println("6 - Listar todos os acessos");
+        System.out.println("7 - Listar todos os carros");
         System.out.print("\nEscolha uma opção: ");
     }
 
@@ -60,6 +68,9 @@ public class Menu {
                 break;
             case 6:
                 controladoraAcesso.listarTodos();
+                break;
+            case 7:
+                controladoraCadastro.mostrarCarros();
                 break;
         }
     }

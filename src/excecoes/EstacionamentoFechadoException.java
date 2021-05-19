@@ -1,6 +1,6 @@
 package excecoes;
 
-public class EstacionamentoFechadoException extends Exception {
+public class EstacionamentoFechadoException extends RuntimeException {
   
 	public EstacionamentoFechadoException() {
 		super("Estacionamento fechado, por favor volte mais tarde");

@@ -1,6 +1,6 @@
 package excecoes;
 
-public class DadosVeiculosIncompletosException extends Exception {
+public class DadosVeiculosIncompletosException extends RuntimeException {
 
 	public DadosVeiculosIncompletosException() {
 		super("Dados do veiculo incompletos");

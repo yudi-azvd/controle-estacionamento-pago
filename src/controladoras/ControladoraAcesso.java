@@ -29,24 +29,25 @@ public class ControladoraAcesso {
 
         int anoPadrao=2020;
         int mesPadrao=5;
-        try{
+        // try{
             LocalDateTime dateTime = LocalDateTime.of(anoPadrao, mesPadrao, dia, hora, minuto, 0);
             Acesso acesso = new Acesso(dateTime, placa);
             if (hora>20 || hora<6) {
 				    throw new EstacionamentoFechadoException();
 			    }
             repositorioDeAcessos.adicionarUm(acesso);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }          
+        // } catch (Exception e) {
+            // System.out.println(e.getMessage());
+        // }          
     }
+
     public void listarTodos() {
         ArrayList<Acesso> lista = repositorioDeAcessos.buscarTodos();
         System.out.println("\nLista de Acessos");
         for(Acesso acesso: lista){
             System.out.println(acesso.toString());
         }
-        System.out.println("\nPressione enter para continuar!");
+        System.out.println("\nPressione ENTER para continuar!");
         entradaDoTeclado.nextLine();
     }
 }

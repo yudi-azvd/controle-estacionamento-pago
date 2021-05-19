@@ -15,6 +15,14 @@ public class RepositorioDeCarros {
         return null;
     }
 
+    public ArrayList<Carro> buscarTodos() {
+        ArrayList<Carro> todosCarros = new ArrayList<>();
+        for(Carro c: carros){
+            todosCarros.add(c);
+        }
+        return todosCarros;
+    }
+
     public void adicionarUm(Carro carro) {
         // checar se carro já existe?
         carros.add(carro);

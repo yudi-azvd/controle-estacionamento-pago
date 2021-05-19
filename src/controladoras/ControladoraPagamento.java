@@ -63,22 +63,10 @@ public class ControladoraPagamento {
 
     // calcularPagamento(diferencaDeTempoEmMinutos);
     System.out.println("O custo é de R$" + custo);
-    System.out.println("\nPressione enter para voltar ao Menu Principal.");
+    System.out.println("\nPressione ENTER para voltar ao Menu Principal.");
     this.entradaDoTeclado.nextLine();
 
   }
-// 20hrs dia 17/05 =>  19hrs dia 18/05   23hrs => 1380
-// pernoite, diaria, 240 minutos
-// 30 + 110 + 48 = 188
-
-// 20hrs dia 17/05 =>  19hrs dia 19/05   47hrs => 2820
-// 1 pernoite, 1 diaria, 300 minutos, 1 pernoite, diaria, 240 minutos 
-// 30 + 110 + 60 + 30 + 110 + 48 = 388;
-
-// 20hrs dia 17/05 =>  7hrs dia 19/05   47hrs => 2820
-// 1 pernoite, 1 diaria, 300 minutos, 1 pernoite, 60 minutos 
-// 30 + 110 + 60 + 30 + 110 + 48 = 388;
-
 
   public void cobrarPagamentoDeMensalista() {
     System.out.print("Digite a cnh do mensalista: ");

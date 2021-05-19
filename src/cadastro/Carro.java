@@ -30,4 +30,8 @@ public class Carro{
         return mensalistaCnh;
     }
 
+    public String toString() {
+        String str = placa + ", " + modelo + ", " + marca;
+        return str + (mensalistaCnh == 0 ? "" : ", associado a um mensalista.");
+    }
 }

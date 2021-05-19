@@ -1,6 +1,6 @@
 package excecoes;
 
-public class DadosAcessoIncompletosException extends Exception {
+public class DadosAcessoIncompletosException extends RuntimeException {
   
 	public DadosAcessoIncompletosException() {
 		super("Dados de acesso incompletos");

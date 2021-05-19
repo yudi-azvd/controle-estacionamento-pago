@@ -1,6 +1,6 @@
 package excecoes;
 
-public class PeriodoInvalidoException extends Exception {
+public class PeriodoInvalidoException extends RuntimeException {
 	
 	public PeriodoInvalidoException() {
 		super("Periodo invalido");
