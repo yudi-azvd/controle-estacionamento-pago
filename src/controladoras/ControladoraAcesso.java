@@ -17,6 +17,8 @@ public class ControladoraAcesso {
     public void cadastrarAcesso() {
         System.out.print("\nDigite a placa do carro: ");
         String placa = entradaDoTeclado.nextLine();
+        System.out.print("Digite o mês do acesso: ");
+        int mes = entradaDoTeclado.nextInt();
         System.out.print("Digite o dia do acesso: ");
         int dia = entradaDoTeclado.nextInt();
         entradaDoTeclado.nextLine();
@@ -29,8 +31,7 @@ public class ControladoraAcesso {
         
 
         int anoPadrao=2020;
-        int mesPadrao=5;
-        LocalDateTime dateTime = LocalDateTime.of(anoPadrao, mesPadrao, dia, hora, minuto, 0);
+        LocalDateTime dateTime = LocalDateTime.of(anoPadrao, mes, dia, hora, minuto, 0);
         Acesso acesso = new Acesso(dateTime, placa);
         if (hora>20 || hora<6) {
             throw new EstacionamentoFechadoException();

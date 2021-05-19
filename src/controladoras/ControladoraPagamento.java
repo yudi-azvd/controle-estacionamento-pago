@@ -1,6 +1,8 @@
 package controladoras;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 import cadastro.Acesso;
@@ -14,26 +16,26 @@ import repositorios.RepositorioDeMensalistas;
 
 public class ControladoraPagamento {
   private Scanner entradaDoTeclado;
-
+  
   private RepositorioDeCarros repositorioDeCarros = new RepositorioDeCarros();
   private RepositorioDeAcessos repositorioDeAcessos = new RepositorioDeAcessos();
   private RepositorioDeMensalistas repositorioDeMensalistas = new RepositorioDeMensalistas();
-
+  
   public ControladoraPagamento(Scanner scanner) {
     this.entradaDoTeclado = scanner;
   }
-
+  
   public void cobrarPagamentoDeUmCarro() {
     System.out.print("\nDigite a placa do carro: ");
     String placa = entradaDoTeclado.nextLine();
-
+    
     Carro carro = repositorioDeCarros.buscarUmComPlaca(placa);
-
+    
     if (carro == null) {
       System.out.println("Carro não foi encontrado");
       return; 
     }
-
+    
     boolean carroPertenceMensalista = carro.getMensalistaCnh() != 0;
     if (carroPertenceMensalista) {
       System.out.println("\nEscolha a opção \"cobrar pagamento de um mensalista\" no menu principal.");
@@ -48,9 +50,9 @@ public class ControladoraPagamento {
     int diferencaDeTempoEmMinutos = acessoEntrada.diferencaDeTempoEmMinutosEntre(acessoSaida);
     int diferencaDeTempoEmDias = acessoEntrada.diferencaDeTempoEmDiasEntre(acessoSaida);
     int periodoEstacionamentoFechadoEmMinutos = 600;
-
+    
     if (diferencaDeTempoEmDias != 0){
-       diferencaDeTempoEmMinutos = diferencaDeTempoEmMinutos - (diferencaDeTempoEmDias * periodoEstacionamentoFechadoEmMinutos); 
+      diferencaDeTempoEmMinutos = diferencaDeTempoEmMinutos - (diferencaDeTempoEmDias * periodoEstacionamentoFechadoEmMinutos); 
     }
     
     if (diferencaDeTempoEmMinutos >= 540){
@@ -62,25 +64,48 @@ public class ControladoraPagamento {
       custo = pagamentoPorMinuto.executar(acessoEntrada, acessoSaida);
     }
     repositorioDeAcessos.apagarTodosComPlaca(placa);
-
+    
     // calcularPagamento(diferencaDeTempoEmMinutos);
     System.out.println("O custo é de R$" + custo);
     System.out.println("\nPressione ENTER para voltar ao Menu Principal.");
     entradaDoTeclado.nextLine();
   }
-
+  
   public void cobrarPagamentoDeMensalista() {
+    double custo=0;
+    final double precoPorMes = 500;
     System.out.print("\nDigite a cnh do mensalista: ");
     int cnh = entradaDoTeclado.nextInt(); entradaDoTeclado.nextLine();
     Mensalista mensalista = repositorioDeMensalistas.buscarUmComCnh(cnh);
+    ArrayList<Carro> carrosDoMensalista = repositorioDeCarros.buscarTodosComCnh(cnh);
+
+    ArrayList<String> placasDosCarros = new ArrayList<>();
+    for (Carro carro : carrosDoMensalista){
+      placasDosCarros.add(carro.getPlaca());
+    }
+
+    ArrayList<Acesso> acessosDeUmMensalista = new ArrayList<>();
+    for (String placa : placasDosCarros) {
+      acessosDeUmMensalista.addAll(repositorioDeAcessos.buscarTodosComPlaca(placa));
+    }
+    // acessosDeUmMensalista.
+    List <Acesso> acessos = acessosDeUmMensalista;
+    Collections.sort(acessos);
+    for (Acesso acesso : acessos) {
+      System.out.println(acesso);      
+    }
+    Acesso acessoAntigo = acessos.get(0);
+    Acesso acessoRecente = acessos.get(acessos.size() - 1 );
+    int diferencaDeTempoEmMeses = acessoAntigo.diferencaDeTempoEmMesesEntre(acessoRecente);
 
     if (mensalista == null) {
       System.out.println("Mensalista não encontrado");
     }
     else {
-      System.out.println(mensalista.getNome() + ", o preço mensal é de R$ 500");
+      custo = precoPorMes + precoPorMes * diferencaDeTempoEmMeses; 
+      System.out.format("%s, o preço é de R$ %.2f", mensalista.getNome() , custo);
     }
-
+    
     System.out.println("\nPressione ENTER para voltar ao Menu Principal.");
     entradaDoTeclado.nextLine();
   }

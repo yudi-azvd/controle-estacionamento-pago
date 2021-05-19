@@ -42,6 +42,7 @@ public class Menu {
         System.out.println("5 - Registrar acesso de carro");
         System.out.println("6 - Listar todos os acessos");
         System.out.println("7 - Listar todos os carros");
+        System.out.println("8 - Associar um carro a mensalista");
         System.out.print("\nEscolha uma opção: ");
     }
 
@@ -76,6 +77,9 @@ public class Menu {
                 break;
             case 7:
                 controladoraCadastro.mostrarCarros();
+                break;
+            case 8:
+                controladoraCadastro.cadastrarCarroAMensalista();
                 break;
         }
     }

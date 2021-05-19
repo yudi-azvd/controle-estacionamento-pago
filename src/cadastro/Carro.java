@@ -29,6 +29,9 @@ public class Carro{
     public int getMensalistaCnh() {
         return mensalistaCnh;
     }
+    public void setCnh(int cnh) {
+        mensalistaCnh = cnh;
+    }
 
     public String toString() {
         String str = placa + ", " + modelo + ", " + marca;

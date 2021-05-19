@@ -48,7 +48,7 @@ public class ControladoraCadastro {
         Mensalista mensalitaExistente=repositorioDeMensalistas.buscarUmComCnh(cnh);
         boolean mensalistaExiste = mensalitaExistente != null; 
         if (mensalistaExiste) {
-            throw new MensalistaJaCadastradoException();
+            throw new CarroNaoExisteException();
         }
         
         Mensalista mensalista = new Mensalista(nome, endereco, celular, telefone, cnh);
@@ -131,5 +131,23 @@ public class ControladoraCadastro {
 
         System.out.println("\nPressione ENTER para voltar ao menu principal.");
         entradaDoTeclado.nextLine();
+    }
+    public void cadastrarCarroAMensalista(){
+        System.out.print("Digite a placa do carro que deseja ser adicinada a mensalista: ");
+        String placa = entradaDoTeclado.nextLine();
+        Carro carroExistente=repositorioDeCarros.buscarUmComPlaca(placa);
+        boolean carroExiste = carroExistente != null; 
+        if (!carroExiste) {
+            throw new CarroNaoExisteException();
+        }
+        System.out.print("Digite a CNH do mensalista: ");
+        int cnh = entradaDoTeclado.nextInt();
+        entradaDoTeclado.nextLine();
+        Mensalista mensalistaExistente=repositorioDeMensalistas.buscarUmComCnh(cnh);
+        boolean mensalistaExiste = mensalistaExistente != null; 
+        if (!mensalistaExiste) {
+            throw new MensalistaNaoExisteException();
+        }
+        repositorioDeCarros.definirCnhParaOCarroComPlaca(cnh, placa);
     }
 }
