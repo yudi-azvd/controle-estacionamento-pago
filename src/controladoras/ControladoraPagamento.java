@@ -48,7 +48,7 @@ public class ControladoraPagamento {
     int periodoEstacionamentoFechadoEmMinutos = 600;
 
     if (diferencaDeTempoEmDias != 0){
-       diferencaDeTempoEmMinutos = diferencaDeTempoEmMinutos - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
+       diferencaDeTempoEmMinutos = diferencaDeTempoEmMinutos - (diferencaDeTempoEmDias * periodoEstacionamentoFechadoEmMinutos); 
     }
     
     if (diferencaDeTempoEmMinutos >= 540){
