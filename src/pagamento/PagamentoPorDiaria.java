@@ -19,12 +19,18 @@ public class PagamentoPorDiaria{
     int minutosEmUmaDiaria = 540;
     double precoPorNoite = 30;
     double precoPorDiaria = 110;
+    double precoPorMinutoExtra = 0.2;
 
-    if (diferencaDeTempoEmDias != 0){
+    if (diferencaDeTempoEmDias != 0) {
       diferenca = diferenca - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
     }
+    else {
+      diferenca -= minutosEmUmaDiaria;
+      return precoPorDiaria + diferenca*precoPorMinutoExtra;
+    }
+
     diferenca = diferenca - (diferencaDeTempoEmDias*minutosEmUmaDiaria);
-    diaria = (diferencaDeTempoEmDias*precoPorNoite)+(diferencaDeTempoEmDias*precoPorDiaria) + (diferenca * 0.2);
+    diaria = (diferencaDeTempoEmDias*precoPorNoite)+(diferencaDeTempoEmDias*precoPorDiaria) + (diferenca * precoPorMinutoExtra);
     return diaria;
   }
 }
