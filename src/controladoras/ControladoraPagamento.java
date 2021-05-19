@@ -59,6 +59,7 @@ public class ControladoraPagamento {
       PagamentoPorMinuto pagamentoPorMinuto = new PagamentoPorMinuto();
       custo = pagamentoPorMinuto.executar(login, logout);
     }
+    repositorioDeAcessos.apagarTodosComPlaca(placa);
 
     // calcularPagamento(diferencaDeTempoEmMinutos);
     System.out.println("O custo é R$" + custo);
