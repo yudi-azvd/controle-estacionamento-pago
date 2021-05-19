@@ -126,7 +126,7 @@ public class ControladoraCadastro {
         System.out.println("\nOs carros cadastrados são:");
         int contador = 0;
         for (Carro carro : carros) {
-            System.out.println("" + contador++ + " ) "+ carro);
+            System.out.println("" + ++contador + ") "+ carro);
         }
 
         System.out.println("\nPressione ENTER para voltar ao menu principal.");

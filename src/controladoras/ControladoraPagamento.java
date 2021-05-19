@@ -25,7 +25,7 @@ public class ControladoraPagamento {
   }
 
   public void cobrarPagamentoDeUmCarro() {
-    System.out.print("Digite a placa do carro: ");
+    System.out.print("\nDigite a placa do carro: ");
     String placa = entradaDoTeclado.nextLine();
 
     Carro carro = repositorioDeCarros.buscarUmComPlaca(placa);
@@ -37,7 +37,9 @@ public class ControladoraPagamento {
 
     boolean carroPertenceMensalista = carro.getMensalistaCnh() != 0;
     if (carroPertenceMensalista) {
-      System.out.println("Escolha a opção \"cobrar pagamento de um mensalista\" no menu principal.");
+      System.out.println("\nEscolha a opção \"cobrar pagamento de um mensalista\" no menu principal.");
+      System.out.println("Pressione ENTER para continuar.");
+      entradaDoTeclado.nextLine();
       return;
     }
     
@@ -65,12 +67,11 @@ public class ControladoraPagamento {
     // calcularPagamento(diferencaDeTempoEmMinutos);
     System.out.println("O custo é de R$" + custo);
     System.out.println("\nPressione ENTER para voltar ao Menu Principal.");
-    this.entradaDoTeclado.nextLine();
-
+    entradaDoTeclado.nextLine();
   }
 
   public void cobrarPagamentoDeMensalista() {
-    System.out.print("Digite a cnh do mensalista: ");
+    System.out.print("\nDigite a cnh do mensalista: ");
     int cnh = entradaDoTeclado.nextInt(); entradaDoTeclado.nextLine();
     Mensalista mensalista = repositorioDeMensalistas.buscarUmComCnh(cnh);
 
@@ -80,5 +81,8 @@ public class ControladoraPagamento {
     else {
       System.out.println(mensalista.getNome() + ", o preço mensal é de R$ 500");
     }
+
+    System.out.println("\nPressione ENTER para voltar ao Menu Principal.");
+    entradaDoTeclado.nextLine();
   }
 }

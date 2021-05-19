@@ -16,7 +16,7 @@ public class Menu {
         do {
             try {
                 mostrarOpcoes();
-                opcao = Integer.parseInt(entradaDoTeclado.nextLine());
+                opcao = lerOpcao();
                 lidarComOpcao(opcao);
             } catch (RuntimeException e) {
                 System.out.println("\n######################");
@@ -43,6 +43,11 @@ public class Menu {
         System.out.println("6 - Listar todos os acessos");
         System.out.println("7 - Listar todos os carros");
         System.out.print("\nEscolha uma opção: ");
+    }
+
+    public int lerOpcao() {
+        int opcao = Integer.parseInt(entradaDoTeclado.nextLine());
+        return opcao;
     }
 
     public void lidarComOpcao(int opcao) {
