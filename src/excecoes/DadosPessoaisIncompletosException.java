@@ -1,7 +1,6 @@
 package excecoes;
 
 public class DadosPessoaisIncompletosException extends RuntimeException {
-  
 	public DadosPessoaisIncompletosException() {
 		super("Dados pessoais incompletos");
 	}
@@ -9,5 +8,4 @@ public class DadosPessoaisIncompletosException extends RuntimeException {
 	public DadosPessoaisIncompletosException(String mensagem) {
 		super(mensagem);
 	}
-
 }

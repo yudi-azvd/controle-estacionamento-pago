@@ -1,7 +1,6 @@
 package excecoes;
 
 public class MensalistaJaCadastradoException extends RuntimeException {
-  
 	public MensalistaJaCadastradoException() {
 		super("CNH já registrada!");
 	}
@@ -9,5 +8,4 @@ public class MensalistaJaCadastradoException extends RuntimeException {
 	public MensalistaJaCadastradoException(String mensagem) {
 		super(mensagem);
 	}
-
 }

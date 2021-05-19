@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Acesso {
   private LocalDateTime dataHora;
   private String placaDoCarro;
+
   public Acesso(LocalDateTime dataHora, String placaDoCarro){
     this.dataHora = dataHora;
     this.placaDoCarro = placaDoCarro;
@@ -16,10 +17,12 @@ public class Acesso {
     int difHoraEmMinutos = horaSaida * 60 - horaEntrada * 60;
     int minutos = difHoraEmMinutos +  (outroAcesso.getDataHora().getMinute() - this.dataHora.getMinute());
     int dias = this.diferencaDeTempoEmDiasEntre(outroAcesso);
+    
     while (dias > 0) {
       minutos += 1440;
       dias --;
     }
+    
     return minutos;
   }
   

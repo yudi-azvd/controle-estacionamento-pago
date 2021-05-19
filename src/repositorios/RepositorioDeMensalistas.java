@@ -19,5 +19,4 @@ public class RepositorioDeMensalistas {
         mensalistas.add(m);
         return null;
     }
-    
 }
