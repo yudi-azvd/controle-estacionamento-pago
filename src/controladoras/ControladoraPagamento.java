@@ -13,19 +13,19 @@ import repositorios.RepositorioDeCarros;
 import repositorios.RepositorioDeMensalistas;
 
 public class ControladoraPagamento {
-  private Scanner sc;
+  private Scanner entradaDoTeclado;
 
   private RepositorioDeCarros repositorioDeCarros = new RepositorioDeCarros();
   private RepositorioDeAcessos repositorioDeAcessos = new RepositorioDeAcessos();
   private RepositorioDeMensalistas repositorioDeMensalistas = new RepositorioDeMensalistas();
 
   public ControladoraPagamento(Scanner scanner) {
-    this.sc = scanner;
+    this.entradaDoTeclado = scanner;
   }
 
   public void cobrarPagamentoDeUmCarro() {
     System.out.print("Digite a placa do carro: ");
-    String placa = sc.nextLine();
+    String placa = entradaDoTeclado.nextLine();
 
     Carro carro = repositorioDeCarros.buscarUmComPlaca(placa);
 
@@ -79,7 +79,7 @@ public class ControladoraPagamento {
 
   public void cobrarPagamentoDeMensalista() {
     System.out.print("Digite a cnh do mensalista: ");
-    int cnh = sc.nextInt(); sc.nextLine();
+    int cnh = entradaDoTeclado.nextInt(); entradaDoTeclado.nextLine();
     Mensalista mensalista = repositorioDeMensalistas.buscarUmComCnh(cnh);
 
     if (mensalista == null) {

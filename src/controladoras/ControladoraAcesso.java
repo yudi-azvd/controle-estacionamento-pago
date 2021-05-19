@@ -8,24 +8,24 @@ import cadastro.Acesso;
 import repositorios.RepositorioDeAcessos;
 
 public class ControladoraAcesso {
-    private Scanner sc;
+    private Scanner entradaDoTeclado;
     RepositorioDeAcessos repositorioDeAcessos = new RepositorioDeAcessos();
 
     public ControladoraAcesso(Scanner scanner) {
-        sc = scanner;
+        entradaDoTeclado = scanner;
     }
     public void cadastrarAcesso() {
         System.out.print("\nDigite a placa do carro: ");
-        String placa = sc.nextLine();
+        String placa = entradaDoTeclado.nextLine();
         System.out.print("Digite o dia do acesso: ");
-        int dia = sc.nextInt();
-        sc.nextLine();
+        int dia = entradaDoTeclado.nextInt();
+        entradaDoTeclado.nextLine();
         System.out.print("Digite a hora do acesso: ");
-        int hora = sc.nextInt();
-        sc.nextLine();
+        int hora = entradaDoTeclado.nextInt();
+        entradaDoTeclado.nextLine();
         System.out.print("Digite o minuto do acesso: ");
-        int minuto = sc.nextInt();
-        sc.nextLine();
+        int minuto = entradaDoTeclado.nextInt();
+        entradaDoTeclado.nextLine();
 
         int anoPadrao=2020;
         int mesPadrao=5;
@@ -40,6 +40,6 @@ public class ControladoraAcesso {
             System.out.println(acesso.toString());
         }
         System.out.println("\nPressione enter para continuar!");
-        sc.nextLine();
+        entradaDoTeclado.nextLine();
     }
 }
