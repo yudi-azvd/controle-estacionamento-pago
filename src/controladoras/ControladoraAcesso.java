@@ -38,10 +38,12 @@ public class ControladoraAcesso {
     }
 
     public void listarTodos() {
+        int contador = 0;
         ArrayList<Acesso> lista = repositorioDeAcessos.buscarTodos();
-        System.out.println("\nLista de Acessos");
+        System.out.println("\nLista de Acessos:");
+
         for(Acesso acesso: lista){
-            System.out.println(acesso.toString());
+            System.out.println("" + ++contador + ") " + acesso.toString());
         }
         System.out.println("\nPressione ENTER para continuar!");
         entradaDoTeclado.nextLine();
