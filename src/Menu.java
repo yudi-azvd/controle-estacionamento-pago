@@ -20,6 +20,7 @@ public class Menu {
                 lidarComOpcao(opcao);
             } catch (Exception e) {
                 System.out.println(e);
+                System.out.println(e.getStackTrace());
             }
         } while (opcao != 0);
     }

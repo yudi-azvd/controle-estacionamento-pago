@@ -1,9 +1,6 @@
 package cadastro;
 
 import java.time.LocalDateTime;
-import java.time.Period;
-
-import javax.xml.datatype.Duration;
 
 public class Acesso {
   private LocalDateTime dataHora;
