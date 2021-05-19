@@ -1,6 +1,7 @@
 package controladoras;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import cadastro.Acesso;
@@ -14,7 +15,7 @@ public class ControladoraAcesso {
         sc = scanner;
     }
     public void cadastrarAcesso() {
-        System.out.println("\nDigite a placa do carro.");
+        System.out.print("\nDigite a placa do carro: ");
         String placa = sc.nextLine();
         System.out.print("Digite o dia do acesso: ");
         int dia = sc.nextInt();
@@ -31,5 +32,14 @@ public class ControladoraAcesso {
         LocalDateTime dateTime = LocalDateTime.of(anoPadrao, mesPadrao, dia, hora, minuto, 0);
         Acesso acesso = new Acesso(dateTime, placa);
         repositorioDeAcessos.adicionarUm(acesso);
+    }
+    public void listarTodos() {
+        ArrayList<Acesso> lista = repositorioDeAcessos.buscarTodos();
+        System.out.println("\nLista de Acessos");
+        for(Acesso acesso: lista){
+            System.out.println(acesso.toString());
+        }
+        System.out.println("\nPressione enter para continuar!");
+        sc.nextLine();
     }
 }

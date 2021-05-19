@@ -40,4 +40,9 @@ public class Acesso {
   public void setDataHora(LocalDateTime dataHora) {
     this.dataHora = dataHora;
   }
+
+  public String toString() {
+    String lista =""+placaDoCarro+": "+ dataHora.getDayOfMonth()+"/"+dataHora.getMonth()+" "+dataHora.getHour()+"h"+dataHora.getMinute() ;
+    return lista; 
+  }
 }
