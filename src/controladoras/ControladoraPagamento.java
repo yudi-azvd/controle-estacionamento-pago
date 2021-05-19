@@ -6,7 +6,6 @@ import java.util.Scanner;
 import cadastro.Acesso;
 import cadastro.Carro;
 import cadastro.Mensalista;
-import excecoes.DadosPessoaisIncompletosException;
 import pagamento.PagamentoPorDiaria;
 import pagamento.PagamentoPorMinuto;
 import repositorios.RepositorioDeAcessos;
