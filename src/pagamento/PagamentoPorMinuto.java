@@ -27,10 +27,10 @@ public class PagamentoPorMinuto extends PagamentoPorFracao {
     return preco;
   }
 
-  public static void main(String[] args) {
-    PagamentoPorMinuto pagamento = new PagamentoPorMinuto();
-    Acesso login = new Acesso(LocalDateTime.of(2017,2,13,15,0),"abc5");
-    Acesso logout = new Acesso(LocalDateTime.of(2017,2,13,15,5),"abc5"); 
-    System.out.println(pagamento.executar(login, logout));
-  } 
+//   public static void main(String[] args) {
+//     PagamentoPorMinuto pagamento = new PagamentoPorMinuto();
+//     Acesso login = new Acesso(LocalDateTime.of(2017,2,13,15,0),"abc5");
+//     Acesso logout = new Acesso(LocalDateTime.of(2017,2,13,15,5),"abc5"); 
+//     System.out.println(pagamento.executar(login, logout));
+//   } 
 }

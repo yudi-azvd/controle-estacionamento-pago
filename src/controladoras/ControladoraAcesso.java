@@ -26,6 +26,7 @@ public class ControladoraAcesso {
         System.out.print("Digite o minuto do acesso: ");
         int minuto = entradaDoTeclado.nextInt();
         entradaDoTeclado.nextLine();
+        
 
         int anoPadrao=2020;
         int mesPadrao=5;

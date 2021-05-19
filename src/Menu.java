@@ -5,10 +5,10 @@ import controladoras.ControladoraCadastro;
 import controladoras.ControladoraPagamento;
 
 public class Menu {
-    Scanner sc = new Scanner(System.in);
-    ControladoraCadastro controladoraCadastro = new ControladoraCadastro(sc);
-    ControladoraPagamento controladoraPagamento = new ControladoraPagamento(sc);
-    ControladoraAcesso controladoraAcesso = new ControladoraAcesso(sc);
+    Scanner entradaDoTeclado = new Scanner(System.in);
+    ControladoraCadastro controladoraCadastro = new ControladoraCadastro(entradaDoTeclado);
+    ControladoraPagamento controladoraPagamento = new ControladoraPagamento(entradaDoTeclado);
+    ControladoraAcesso controladoraAcesso = new ControladoraAcesso(entradaDoTeclado);
 
     public void executa() {
         int opcao = 0;
@@ -16,7 +16,7 @@ public class Menu {
         do {
             try {
                 mostrarOpcoes();
-                opcao = Integer.parseInt(sc.nextLine());
+                opcao = Integer.parseInt(entradaDoTeclado.nextLine());
                 lidarComOpcao(opcao);
             } catch (RuntimeException e) {
                 System.out.println("\n######################");
@@ -24,7 +24,7 @@ public class Menu {
                 System.out.println("#");
                 System.out.println("# Pressione ENTER para continuar");
                 System.out.println("######################");
-                sc.nextLine();
+                entradaDoTeclado.nextLine();
 
                 // System.out.println(e);
                 // System.out.println(e.getStackTrace());
@@ -49,7 +49,7 @@ public class Menu {
         switch (opcao) {
             case 0:
                 System.out.println("\nObrigado por usar nosso programa! Até mais :)");
-                sc.close();
+                entradaDoTeclado.close();
                 break;
             case 1:
                 controladoraCadastro.cadastrarMensalistaECarro();
