@@ -9,27 +9,29 @@ import java.util.ArrayList;
 
 import cadastro.Acesso;
 
-/**
- *
- * @author pablo
- */
+
 public class RepositorioDeAcessos {
     static private ArrayList<Acesso> acessos = new ArrayList<Acesso>();
     
     public ArrayList<Acesso> buscarTodosComPlaca (String placa) {
-        ArrayList<Acesso> a = new ArrayList<Acesso>();
-        a = null;
+        ArrayList<Acesso> listaDeAcesso = new ArrayList<Acesso>();
         for(Acesso ac: acessos){
             if (ac.getPlacaDoCarro().equals(placa)) {
-                a.add(ac);
+                listaDeAcesso.add(ac);
             }
         }
-        
-        return a;
+        return listaDeAcesso;
     }
 
-    public  Acesso adicionarUm(Acesso acesso) {
+    public ArrayList<Acesso> buscarTodos () {
+        ArrayList<Acesso> listaDeAcesso = new ArrayList<Acesso>();
+        for(Acesso ac: acessos){
+            listaDeAcesso.add(ac);
+        }
+        return listaDeAcesso;
+    }
+
+    public void adicionarUm(Acesso acesso) {
         acessos.add(acesso);
-        return null;
     }
 }

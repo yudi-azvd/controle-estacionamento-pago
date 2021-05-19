@@ -6,6 +6,8 @@ import java.util.Scanner;
 import cadastro.Acesso;
 import cadastro.Carro;
 import cadastro.Mensalista;
+import pagamento.PagamentoPorDiaria;
+import pagamento.PagamentoPorMinuto;
 import repositorios.RepositorioDeAcessos;
 import repositorios.RepositorioDeCarros;
 import repositorios.RepositorioDeMensalistas;
@@ -39,21 +41,25 @@ public class ControladoraPagamento {
     }
     
     ArrayList<Acesso> acessos = repositorioDeAcessos.buscarTodosComPlaca(placa);
-
+    Acesso login = acessos.get(0), logout = acessos.get(1);
+    double custo = 0;
     int diferencaDeTempoEmMinutos = acessos.get(0).diferencaDeTempoEmMinutosEntre(acessos.get(1));
     int diferencaDeTempoEmDias = acessos.get(0).diferencaDeTempoEmDiasEntre(acessos.get(1));
+    int periodoEstacionamentoFechadoEmMinutos = 600;
+
+    if (diferencaDeTempoEmDias != 0){
+       diferencaDeTempoEmMinutos = diferencaDeTempoEmMinutos - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
+    }
     
-    // if (diferencaDeTempoEmDias != 0){
-    //    diferenca = diferenca - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
-    // }
-    
-    // if (diferencaDeTempoEmMinutosEntre >= 540){
-    //   manda pagamentoPorDiaria
-    // }
-    // else{
-    //   manda pagamentoPorMinutos
-    // }
-    double custo = 0;
+    if (diferencaDeTempoEmMinutos >= 540){
+      PagamentoPorDiaria pagamentoPorDiaria = new PagamentoPorDiaria();
+      custo = pagamentoPorDiaria.executar(login, logout);
+    }
+    else{
+      PagamentoPorMinuto pagamentoPorMinuto = new PagamentoPorMinuto();
+      custo = pagamentoPorMinuto.executar(login, logout);
+    }
+
     // calcularPagamento(diferencaDeTempoEmMinutos);
     System.out.println("O custo é R$" + custo);
   }
