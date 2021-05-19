@@ -12,18 +12,19 @@ public class PagamentoPorMinuto extends PagamentoPorFracao {
   }
 
   private double calcularCustoDeEstadia(int diferencaDeTempoEmMinutos, int diferencaDeTempoEmDias) {
-    int diferenca = diferencaDeTempoEmMinutos;
     double preco = 0;
     int periodoEstacionamentoFechadoEmMinutos = 600;
     double precoPorMinuto = 0.5;
     double precoPorNoite = 30;
 
     if (diferencaDeTempoEmDias != 0) {
-      diferenca = diferenca - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
+      diferencaDeTempoEmMinutos = diferencaDeTempoEmMinutos - (diferencaDeTempoEmDias* periodoEstacionamentoFechadoEmMinutos); 
     }
     
-    preco = diferenca * precoPorMinuto;
-    preco = preco - super.calcularDesconto(diferencaDeTempoEmMinutos) + (diferencaDeTempoEmDias*precoPorNoite);
+    preco = diferencaDeTempoEmMinutos * precoPorMinuto;
+    // double desconto  = super.calcularDesconto(diferencaDeTempoEmMinutos);
+    double desconto  = super.calcularDesconto(diferencaDeTempoEmMinutos);
+    preco = preco - desconto + (diferencaDeTempoEmDias*precoPorNoite);
     return preco;
   }
 
