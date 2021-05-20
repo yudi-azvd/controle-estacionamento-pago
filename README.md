@@ -4,7 +4,7 @@ pago.
 
 [Diagrama de classes no Drawio](https://drive.google.com/file/d/1WHVr1nQ8FEHHnq8d2CB9gBRIKKJ7W_iZ/view?usp=sharing).
 
-<img src="docs/Diagrama Controle de Estacionamento.png">
+<img src="docs/Controle_de_Estacionamento_Pago_Diagrama_de_classes.png">
 
 ## Baixar
 Voce pode baixar o código fonte clicando no botão verde dessa 
@@ -44,7 +44,7 @@ não tiver, basta executar:
 
 - [Eduardo Levenhagem](https://github.com/MegahNevel)
 - [guigudf](https://github.com/guigudf)
-- [Guilherme Andreúche](https://github.com/streeg)
+- [Guilherme Andreúce](https://github.com/streeg)
 - [Pablo Santos](https://github.com/pablo0359)
 - [Yudi Yamane](https://github.com/yudi-azvd)
 
