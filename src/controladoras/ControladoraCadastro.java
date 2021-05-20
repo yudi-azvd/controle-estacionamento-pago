@@ -132,12 +132,13 @@ public class ControladoraCadastro {
         System.out.println("\nOs carros cadastrados são:");
         int contador = 0;
         for (Carro carro : carros) {
-            System.out.println("" + ++contador + ") "+ carro);
+            System.out.println("  " + ++contador + ") "+ carro);
         }
 
         System.out.println("\nPressione ENTER para voltar ao menu principal.");
         entradaDoTeclado.nextLine();
     }
+
     public void cadastrarCarroAMensalista(){
         System.out.print("Digite a placa do carro que deseja ser adicinada a mensalista: ");
         String placa = entradaDoTeclado.nextLine();
@@ -155,5 +156,23 @@ public class ControladoraCadastro {
             throw new MensalistaNaoExisteException();
         }
         repositorioDeCarros.definirCnhParaOCarroComPlaca(cnh, placa);
+    }
+
+    public void mostrarMensalistas() {
+        ArrayList<Mensalista> mensalistas = repositorioDeMensalistas.buscarTodos();
+
+        if (mensalistas.size() == 0) {
+            System.out.println("Nenhum mensalista cadastrado.");
+        }
+        else {
+            int contador = 0;
+            System.out.println();
+            for (Mensalista mensalista : mensalistas) {
+                System.out.println("  " + ++contador + ") " + mensalista);
+            }
+        }
+
+        System.out.println("\nPressione ENTER para voltar ao menu principal.");
+        entradaDoTeclado.nextLine();
     }
 }

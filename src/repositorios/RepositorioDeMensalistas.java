@@ -19,4 +19,12 @@ public class RepositorioDeMensalistas {
         mensalistas.add(m);
         return null;
     }
+
+    public ArrayList<Mensalista> buscarTodos() {
+        ArrayList<Mensalista> todosMensalistas = new ArrayList<>();
+        for (Mensalista mensalista : mensalistas) {
+            todosMensalistas.add(mensalista);
+        }
+        return todosMensalistas;
+    }
 }

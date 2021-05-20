@@ -41,6 +41,7 @@ public class Menu {
         System.out.println("6 - Cobrar pagamento de um mensalista");
         System.out.println("7 - Listar todos os acessos");
         System.out.println("8 - Listar todos os carros");
+        System.out.println("9 - Listar todos os mensalistas");
         System.out.print("\nEscolha uma opção: ");
     }
 
@@ -86,6 +87,9 @@ public class Menu {
                 break;
             case 8:
                 controladoraCadastro.mostrarCarros();
+                break;
+            case 9:
+                controladoraCadastro.mostrarMensalistas();
                 break;
         }
     }

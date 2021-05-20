@@ -1,12 +1,3 @@
-1
-Fulano de Tal
-Brasilia DF
-9999-9999
-3333-3333
-1234
-UP
-GR1J4
-fiat
 2
 S3
 DF1R8
@@ -15,20 +6,18 @@ tesla
 UNO
 qwe-123
 fiat
-5
+3
 DF1R8
 1
 31
 10
 0
-5
+3
 DF1R8
 3
 1
 10
 0
-3
+5
 DF1R8
 0
-
-

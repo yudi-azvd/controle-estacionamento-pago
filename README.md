@@ -16,10 +16,11 @@ executando os seguintes comandos no terminal:
     cd controle-estacionamento-pago
 
 
-## Usar 
+## Build
 É possível usar o aplicativo com 
 [Visual Studio Code](https://code.visualstudio.com/download) instalando o 
-[pacote de extensões Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Se tudo deu certo voce verá algo assim no arquivo `src/App.java`:
+[pacote de extensões Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). 
+Se tudo deu certo voce verá algo assim no arquivo `src/App.java`:
 
 <img src="./docs/exec-java.png">
 
@@ -34,10 +35,38 @@ aplicação:
 
     ./controle-estacionamento-pago.jar
 
+Se não der certo é possível tentar executar com
+
+    java -jar controle-estacionamento-pago.jar
+
 Certifique-se de que o você tem permissões de execução do arquivo `build.sh`. Se
 não tiver, basta executar:
 
     chmod +x build.sh
+
+
+## Instruções de Uso
+Essa é uma aplicação textual, então você vai interagir com o sistema digitando
+as informações pedidas no terminal. 
+
+Na pasta `casos`, existem alguns arquivos texto que podem ser usados para 
+preencher o sistema com mais facilidade. Cada linha representa o que uma pessoa
+digitaria no programa como se ela estivesse digitando manualmente. 
+Basta copiar todo o conteúdo de um arquivo de interesse 
+(<kbd>Ctrl</kbd>+<kbd>A</kbd>, <kbd>Ctrl</kbd>+<kbd>C</kbd>), iniciar o programa 
+e colar (<kbd>Ctrl</kbd>+<kbd>V</kbd>) o conteúdo no terminal logo em seguida.
+
+Se você testar um caso novo (que não está em `casos`) constantemente, é 
+aconselhado que você crie um arquivo para facilitar o preenchimento do sistema.
+
+
+## Notas
+- O programa não deixa adicionar mais de dois acessos antes de fazer a cobrança de
+pagamento de um carro ou mensalista.
+
+- Só é possível cadastrar um mensalista junto com o seu carro, mas é possível 
+cadastrar carros sem mensalistas. Além disso, é possível associar um carro já 
+cadastrado a um mensalista cadastrado.
 
 
 ### Participantes
@@ -49,6 +78,6 @@ não tiver, basta executar:
 - [Yudi Yamane](https://github.com/yudi-azvd)
 
 
-#### Criar um JAR
+<!-- #### Criar um JAR
 - [https://www.baeldung.com/java-create-jar](https://www.baeldung.com/java-create-jar)
-- [https://stackoverflow.com/questions/4597866/java-creating-jar-file](https://stackoverflow.com/questions/4597866/java-creating-jar-file)
+- [https://stackoverflow.com/questions/4597866/java-creating-jar-file](https://stackoverflow.com/questions/4597866/java-creating-jar-file) -->

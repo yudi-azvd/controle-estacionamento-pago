@@ -8,6 +8,7 @@ import java.util.Scanner;
 import cadastro.Acesso;
 import cadastro.Carro;
 import cadastro.Mensalista;
+import excecoes.MensalistaNaoExisteException;
 import pagamento.PagamentoPorDiaria;
 import pagamento.PagamentoPorMinuto;
 import repositorios.RepositorioDeAcessos;
@@ -74,7 +75,7 @@ public class ControladoraPagamento {
   public void cobrarPagamentoDeMensalista() {
     double custo=0;
     final double precoPorMes = 500;
-    System.out.print("\nDigite a cnh do mensalista: ");
+    System.out.print("\nDigite a CNH do mensalista: ");
     int cnh = entradaDoTeclado.nextInt(); entradaDoTeclado.nextLine();
     Mensalista mensalista = repositorioDeMensalistas.buscarUmComCnh(cnh);
     ArrayList<Carro> carrosDoMensalista = repositorioDeCarros.buscarTodosComCnh(cnh);
@@ -88,22 +89,23 @@ public class ControladoraPagamento {
     for (String placa : placasDosCarros) {
       acessosDeUmMensalista.addAll(repositorioDeAcessos.buscarTodosComPlaca(placa));
     }
-    // acessosDeUmMensalista.
     List <Acesso> acessos = acessosDeUmMensalista;
     Collections.sort(acessos);
-    for (Acesso acesso : acessos) {
-      System.out.println(acesso);      
-    }
     Acesso acessoAntigo = acessos.get(0);
     Acesso acessoRecente = acessos.get(acessos.size() - 1 );
     int diferencaDeTempoEmMeses = acessoAntigo.diferencaDeTempoEmMesesEntre(acessoRecente);
 
     if (mensalista == null) {
-      System.out.println("Mensalista não encontrado");
+      throw new MensalistaNaoExisteException();
     }
     else {
+      int contador = 0;
+      System.out.println("Acessos:");
+      for (Acesso acesso : acessos) {
+        System.out.println("  " + ++contador + ") " + acesso);      
+      }  
       custo = precoPorMes + precoPorMes * diferencaDeTempoEmMeses; 
-      System.out.format("%s, o preço é de R$ %.2f", mensalista.getNome() , custo);
+      System.out.format("\n%s, o preço é de R$ %.2f", mensalista.getNome() , custo);
     }
     
     System.out.println("\nPressione ENTER para voltar ao Menu Principal.");

@@ -24,9 +24,11 @@ public class Mensalista {
         return nome;
     }
 
-
     public int getCnh() {
         return cnh;
-    }  
- 
+    } 
+    
+    public String toString() {
+        return nome.toUpperCase() + ", CNH: " + cnh;
+    } 
 }
