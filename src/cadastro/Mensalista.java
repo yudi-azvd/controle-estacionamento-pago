@@ -2,6 +2,7 @@ package cadastro;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
 public class Mensalista {
     private String nome;
     private String endereco;
@@ -18,32 +19,14 @@ public class Mensalista {
         cnh = _cnh;
         carros = new ArrayList<>();
     };
-
-    public void adicionarCarro(Carro carro) {
-        carros.add(carro);
-    }
     
     public String getNome() {
         return nome;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
 
     public int getCnh() {
         return cnh;
-    }
-    
-    public ArrayList<Carro> getCarros() {
-        return carros;
-    }
+    }  
+ 
 }
