@@ -72,7 +72,7 @@ cadastrado a um mensalista cadastrado.
 ### Participantes
 
 - [Eduardo Levenhagem](https://github.com/MegahNevel)
-- [guigudf](https://github.com/guigudf)
+- [Guilherme dos Santos](https://github.com/guigudf)
 - [Guilherme Andreúce](https://github.com/streeg)
 - [Pablo Santos](https://github.com/pablo0359)
 - [Yudi Yamane](https://github.com/yudi-azvd)
