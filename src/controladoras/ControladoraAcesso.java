@@ -7,6 +7,7 @@ import cadastro.Acesso;
 import cadastro.Carro;
 import excecoes.CarroNaoExisteException;
 import excecoes.EstacionamentoFechadoException;
+import excecoes.PagamentoPendenteException;
 import excecoes.PeriodoInvalidoException;
 import repositorios.RepositorioDeAcessos;
 import repositorios.RepositorioDeCarros;
@@ -56,7 +57,11 @@ public class ControladoraAcesso {
             if (diffTempoEmMin <= 0)
                 throw new PeriodoInvalidoException();
         }     
-        
+        boolean esseCarroJaTemDoisAcessos = acessos.size() > 1;
+        if (esseCarroJaTemDoisAcessos) {
+            throw new PagamentoPendenteException();
+        }     
+
         repositorioDeAcessos.adicionarUm(acesso);
     }
 
