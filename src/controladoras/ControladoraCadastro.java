@@ -37,12 +37,18 @@ public class ControladoraCadastro {
         
         System.out.print("Digite sua CNH: ");
         String saida = entradaDoTeclado.nextLine();	
-        int cnh = Integer.valueOf(saida);	
+
+        int cnh;
+        try {
+            cnh = Integer.valueOf(saida);	
+        } catch (Exception e) {
+            throw new DadosPessoaisIncompletosException();
+        }
         
         if (nome == null || nome.length() == 0 || endereco == null || endereco.length() == 0
         || celular == null || celular.length() == 0 || telefone == null || telefone.length() == 0 
         || saida == null || saida.length() == 0) {
-            throw new DadosAcessoIncompletosException();
+            throw new DadosPessoaisIncompletosException();
         }
 
         Mensalista mensalitaExistente=repositorioDeMensalistas.buscarUmComCnh(cnh);
