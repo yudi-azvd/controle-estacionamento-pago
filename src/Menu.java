@@ -3,6 +3,7 @@ import java.util.Scanner;
 import controladoras.ControladoraAcesso;
 import controladoras.ControladoraCadastro;
 import controladoras.ControladoraPagamento;
+import excecoes.OpcaoInvalidaException;
 
 public class Menu {
     Scanner entradaDoTeclado = new Scanner(System.in);
@@ -11,7 +12,7 @@ public class Menu {
     ControladoraAcesso controladoraAcesso = new ControladoraAcesso(entradaDoTeclado);
 
     public void executa() {
-        int opcao = 0;
+        int opcao = -1;
 
         do {
             try {
@@ -25,9 +26,6 @@ public class Menu {
                 System.out.println("# Pressione ENTER para continuar");
                 System.out.println("######################");
                 entradaDoTeclado.nextLine();
-
-                // System.out.println(e);
-                // System.out.println(e.getStackTrace());
             }
         } while (opcao != 0);
     }
@@ -37,17 +35,25 @@ public class Menu {
         System.out.println("0 - Sair");
         System.out.println("1 - Cadastrar um mensalista/carro");
         System.out.println("2 - Cadastrar um carro");
-        System.out.println("3 - Cobrar pagamento de um carro");
-        System.out.println("4 - Cobrar pagamento de um mensalista");
-        System.out.println("5 - Registrar acesso de carro");
-        System.out.println("6 - Listar todos os acessos");
-        System.out.println("7 - Listar todos os carros");
-        System.out.println("8 - Associar um carro a mensalista");
+        System.out.println("3 - Cadastrar acesso de carro");
+        System.out.println("4 - Associar um carro a mensalista");
+        System.out.println("5 - Cobrar pagamento de um carro");
+        System.out.println("6 - Cobrar pagamento de um mensalista");
+        System.out.println("7 - Listar todos os acessos");
+        System.out.println("8 - Listar todos os carros");
         System.out.print("\nEscolha uma opção: ");
     }
 
     public int lerOpcao() {
-        int opcao = Integer.parseInt(entradaDoTeclado.nextLine());
+        int opcao = -1;
+        try {
+            opcao = Integer.parseInt(entradaDoTeclado.nextLine());
+        } catch (NumberFormatException e) {
+            throw new OpcaoInvalidaException();
+        }
+        boolean opcaoDentroDosLimites = 0 <= opcao && opcao <= 8;
+        if (!opcaoDentroDosLimites) 
+            throw new OpcaoInvalidaException();
         return opcao;
     }
 
@@ -64,22 +70,22 @@ public class Menu {
                 controladoraCadastro.cadastrarCarro();
                 break;    
             case 3:
-                controladoraPagamento.cobrarPagamentoDeUmCarro();
-                break;
-            case 4:
-                controladoraPagamento.cobrarPagamentoDeMensalista();
-                break;
-            case 5:
                 controladoraAcesso.cadastrarAcesso();
                 break;
+            case 4:
+                controladoraCadastro.cadastrarCarroAMensalista();
+                break;
+            case 5:
+                controladoraPagamento.cobrarPagamentoDeUmCarro();
+                break;
             case 6:
-                controladoraAcesso.listarTodos();
+                controladoraPagamento.cobrarPagamentoDeMensalista();
                 break;
             case 7:
-                controladoraCadastro.mostrarCarros();
+                controladoraAcesso.listarTodos();
                 break;
             case 8:
-                controladoraCadastro.cadastrarCarroAMensalista();
+                controladoraCadastro.mostrarCarros();
                 break;
         }
     }
