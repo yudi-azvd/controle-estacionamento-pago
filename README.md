@@ -44,7 +44,7 @@ não tiver, basta executar:
 
 - [Eduardo Levenhagem](https://github.com/MegahNevel)
 - [guigudf](https://github.com/guigudf)
-- [Guilherme Andreúche](https://github.com/streeg)
+- [Guilherme Andreúce](https://github.com/streeg)
 - [Pablo Santos](https://github.com/pablo0359)
 - [Yudi Yamane](https://github.com/yudi-azvd)
 
