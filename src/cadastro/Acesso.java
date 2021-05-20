@@ -34,28 +34,14 @@ public class Acesso implements Comparable<Acesso> {
     return outroAcesso.dataHora.getMonthValue()- this.dataHora.getMonthValue();
   }
 
-  // public int diferencaDeTempoEmAnos(Acesso outroAcesso) {
-
-  //   return 
-  // }
-  
   public String getPlacaDoCarro() {
     return placaDoCarro;
   }
-  
-  public void setPlacaDoCarro(String placaDoCarro) {
-    this.placaDoCarro = placaDoCarro;
-  }
-  
-  
+    
   public LocalDateTime getDataHora() {
     return dataHora;
   }
   
-  public void setDataHora(LocalDateTime dataHora) {
-    this.dataHora = dataHora;
-  }
-
   public String toString() {
     String lista =""+placaDoCarro+": "+ dataHora.getDayOfMonth()+"/"+dataHora.getMonthValue()+" "+dataHora.getHour()+"h"+dataHora.getMinute() ;
     return lista; 
